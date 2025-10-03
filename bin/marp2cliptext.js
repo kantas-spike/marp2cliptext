@@ -4,9 +4,21 @@
 import { Marpit } from "@marp-team/marpit";
 import fs from "node:fs";
 import path from "node:path";
-import { program } from "commander";
+import { InvalidOptionArgumentError, program } from "commander";
 import { createRequire } from "node:module";
 import { exec } from "node:child_process";
+
+function commaSeparatedList(value, dummyPrevious) {
+  return value.split(/\s*,\s*/).map((val) => {
+    const intVal = parseInt(val, 10);
+    if (isNaN(intVal)) {
+      throw new InvalidOptionArgumentError(
+        `スライド番号に不正な数値が指定されました: ${val}`
+      );
+    }
+    return intVal;
+  });
+}
 
 function getClipInfo(marpFilePath) {
   if (!fs.existsSync(marpFilePath)) {
@@ -48,6 +60,11 @@ program
     "テキストファイルを出力するディレクトリパス"
   )
   .option(
+    "-n, --no <slide_numbers>",
+    "抽出対象のスライド番号を指定し、指定されたスライドのみ抽出する。複数番号はコンマ区切りで指定する. 例: -n 1,4,5",
+    commaSeparatedList
+  )
+  .option(
     "--pdf",
     "出力したテキストファイルをcupsfilterを使ってPDFに変換する(macOS用)"
   )
@@ -57,9 +74,12 @@ program
   )
   .argument("<marp_file_path>", "原稿となるMarpファイルパス")
   .action((marp_file_path, options) => {
+    console.log(options);
     try {
       const infoList = getClipInfo(path.resolve(marp_file_path));
-      // console.log(infoList);
+      console.log(
+        `クリップのあるスライドNo: ${infoList.map((info) => info.slideNo)}`
+      );
 
       // 出力ディレクトリが未指定時
       if (!options.output) {
@@ -82,6 +102,16 @@ program
       }
       console.log(`${outputDir}にクリップ用コメントを出力...`);
       for (const info of infoList) {
+        // スライド番号指定時
+        if (options.no.length > 0) {
+          if (options.no.includes(info.slideNo)) {
+            console.debug(`処理対象: No${info.slideNo}`);
+          } else {
+            // 処理対象外のため除外
+            console.debug(`対象外のため除外: No${info.slideNo}`);
+            continue;
+          }
+        }
         const fileName = info.slideNo.toString().padStart(2, "0") + ".txt";
         const outputFile = path.join(outputDir, fileName);
         fs.writeFileSync(outputFile, info.cmment.join("\n"));

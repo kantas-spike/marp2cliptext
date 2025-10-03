@@ -84,3 +84,4 @@ Long-term Support の略
 ## 古いmacの寿命は<br>あと2年!
 
 <!-- 私のmac、寿命はあと2年! -->
+<div class="wm" title="動画差し込み用のウォーターマーク" />

@@ -1,6 +1,6 @@
 {
   "name": "marp2cliptext",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "marpファイルのクリップ差し込み用スライドを特定し、そのノートをクリップのシナリオ用に書き出す。",
   "license": "MIT",
   "author": "",

@@ -103,6 +103,10 @@ marp2cliptext ./sample/slide.md -o ./sample/clips --pdf --delete-org-file
 
 ## 更新履歴
 
+### v1.0.1
+
+- `-n, --no <slide_numbers>`オプションで処理対象のスライド番号を指定可能に
+
 ### v1.0.0
 
 - [kantas-spike/my-marp-utils: marpファイルから動画を作成するためのユーティリティツールを提供する。](https://github.com/kantas-spike/my-marp-utils)から、`marp2cliptext`を移動
