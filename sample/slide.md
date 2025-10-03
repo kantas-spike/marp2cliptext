@@ -1,0 +1,86 @@
+---
+marp: true
+theme: gaia
+style: |
+  section {
+    > .wm {
+        border-radius: 40px;
+        background-color: #ddd;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow-wrap: normal;
+        position: absolute;
+        max-width: 18rem;
+        max-height: 10rem;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        font-size: 10cqmin;
+        font-weight: bold;
+        color: red;
+        opacity: 0.25;
+
+        &::before {
+          content: attr(title);
+        }
+    }
+  }
+---
+
+# Blender4.5 LTS リリース候補 <br>公開されたよ！
+
+<!-- _class: first -->
+
+<!-- :1:Blender4.5 LTS のリリース候補版が、7月9日に公開されたよ -->
+
+---
+
+<!-- _class: vcenter -->
+
+## LTSとは
+
+Long-term Support の略
+
+2年間メンテナンスされる
+バージョンのこと
+
+<!-- :2:LTSとは、2年間メンテナンスされるバージョンのことだよ -->
+<!-- 通常は約4ヶ月のみメンテナンスされるよ。 -->
+
+---
+
+## 正式版リリースは 2025/7/15 !!
+
+<!--
+
+正式版リリースは 2025年7月15日だよ
+
+ここに差し込みクリップ用のナレーションを記載する。
+-->
+
+<div class="wm" title="動画差し込み用のウォーターマーク" />
+
+---
+
+<!-- _class: vcenter -->
+
+## 個人的な注目点
+
+- VSEに大きな変更なし
+- 最後のIntel版mac対応バージョン
+
+<!-- :1:個人的な注目点を紹介するよ -->
+<!-- :2:私がよく利用する動画編集機能には大きな変更はないよ。 -->
+<!-- 大問題は、今回が最後のIntel版mac対応バージョンになることだよ。 -->
+
+---
+
+<!-- _class: vcenter -->
+
+## 古いmacの寿命は<br>あと2年!
+
+<!-- 私のmac、寿命はあと2年! -->
