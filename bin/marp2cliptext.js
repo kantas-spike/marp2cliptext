@@ -103,7 +103,7 @@ program
       console.log(`${outputDir}にクリップ用コメントを出力...`);
       for (const info of infoList) {
         // スライド番号指定時
-        if (options.no.length > 0) {
+        if (options.no?.length > 0) {
           if (options.no.includes(info.slideNo)) {
             console.debug(`処理対象: No${info.slideNo}`);
           } else {
